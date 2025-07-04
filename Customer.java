@@ -13,7 +13,7 @@ public class Customer {
         double subtotal = 0;
         for(var product : cart.keySet()){
             subtotal += product.getPrice() * cart.get(product);
-            if(product instanceof ShippableProduct){shippingService.addShippableProduct((ShippableProduct) product, cart.get(product));}
+            if(product instanceof Shippable){shippingService.addShippableProduct((ShippableProduct) product, cart.get(product));}
         }
         double shippingCost = shippingService.getShippingCost();
         double paidAmount = subtotal + shippingCost;
