@@ -44,6 +44,7 @@ public class Customer {
     public void addToCart(Product product, int amount){
         if(amount > product.getQuantity())
             throw new RuntimeException("Amount requested is greater than available product quantity");
+        product.setQuantity(product.getQuantity() - amount);
         if(product.isExpired())
             throw new RuntimeException("Product is expired");
         if(cart.containsKey(product)){
